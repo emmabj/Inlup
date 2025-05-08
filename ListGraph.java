@@ -107,9 +107,11 @@ public class ListGraph implements Graph {
         edgeWeights.get(node1).put(node2, newWeight);
         edgeWeights.get(node2).put(node1, newWeight); //uppdaterar vikten
     }
-
-    public Set<String> getNodes() {
-        return new HashSet<>(adjacencyList.keySet());
+        public Set<String> getNodes() {
+        Set<String> copyList = new HashSet<>(adjacencyList.keySet());
+        return copyList;
+        // adjacencyList.keySet() hämtar alla noder som finns i adjacencyList
+        //new HashSet skapar ny instans av listan och kopierar nycklarna från adjenency och lägger i variabeln copyList
     }
 
     public Collection<String> getEdgesFrom(String node) {
